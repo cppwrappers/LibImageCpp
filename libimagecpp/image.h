@@ -21,7 +21,7 @@
 #include <memory>
 #include <string>
 
-namespace imlib_image {
+namespace image {
 struct __Image;
 /**
  * @brief Image class to read and manipulate images.

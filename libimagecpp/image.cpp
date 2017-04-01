@@ -21,7 +21,7 @@
 
 #include "Imlib2.h"
 
-namespace imlib_image {
+namespace image {
 
 struct __Image {
     __Image( const std::string filename ) {
@@ -88,4 +88,4 @@ void Image::scale ( const int & width, const int & height, const std::string & o
         imlib_free_image();
         imlib_context_set_image ( image_->image );
 }
-} // media
+}//namespace image
