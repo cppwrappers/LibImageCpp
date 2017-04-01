@@ -21,13 +21,13 @@
 
 #include "Imlib2.h"
 
-namespace image {
+namespace imlib_image {
 
 struct __Image {
     __Image( const std::string filename ) {
         image = imlib_load_image ( filename.c_str() );
     }
-    ~__Image();
+    ~__Image() {}
 
     Imlib_Image image;
 };
