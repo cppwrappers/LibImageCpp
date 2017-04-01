@@ -28,7 +28,8 @@ struct __Image;
  */
 class Image {
 public:
-    explicit Image ( const std::string & filename ) : width_ ( 0 ), height_ ( 0 ), filename_ ( filename ), loaded_ ( false ) {}
+    Image ( const std::string & filename ) :
+        filename_ ( filename ), width_ ( 0 ), height_ ( 0 ), loaded_ ( false ) {}
 
         Image ( const Image& ) = delete;
         Image ( Image&& ) = delete;
@@ -65,10 +66,11 @@ public:
         void scale ( const int & width, const int & height, const std::string & outfile );
 
 private:
+        const std::string filename_;
         int width_, height_;
-        std::string mime_type_;
-        std::string filename_;
         bool loaded_;
+
+        std::string mime_type_;
         std::shared_ptr< __Image > image_;
         void init_();
 };

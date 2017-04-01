@@ -24,7 +24,7 @@
 namespace image {
 
 struct __Image {
-    __Image( const std::string filename ) : image(image) {
+    __Image( const std::string filename ) {
         image = imlib_load_image ( filename.c_str() );
     }
     ~__Image();
