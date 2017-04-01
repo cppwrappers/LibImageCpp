@@ -23,12 +23,21 @@
 
 namespace image {
 
+struct __Image {
+    __Image( const std::string filename ) : image(image) {
+        image = imlib_load_image ( filename.c_str() );
+    }
+    ~__Image();
+
+    Imlib_Image image;
+};
+
 Image::~Image() {
         if ( loaded_ ) { imlib_free_image(); }
 }
 void Image::init_() {
-        image_ = imlib_load_image ( filename_.c_str() );
-        imlib_context_set_image ( image_ );
+        image_ = std::make_shared< __Image >( filename_ );
+        imlib_context_set_image ( image_->image );
         loaded_ = true;
 
         if ( !image_ ) {
@@ -77,6 +86,6 @@ void Image::scale ( const int & width, const int & height, const std::string & o
         imlib_context_set_image ( imlib_thumb );
         imlib_save_image ( outfile.c_str() );
         imlib_free_image();
-        imlib_context_set_image ( image_ );
+        imlib_context_set_image ( image_->image );
 }
 } // media

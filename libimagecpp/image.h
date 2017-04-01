@@ -18,11 +18,11 @@
 #define IMAGE_H
 
 #include <iostream>
+#include <memory>
 #include <string>
 
-#include "Imlib2.h"
-
 namespace image {
+struct __Image;
 /**
  * @brief Image class to read and manipulate images.
  */
@@ -69,7 +69,7 @@ private:
         std::string mime_type_;
         std::string filename_;
         bool loaded_;
-        Imlib_Image image_;
+        std::shared_ptr< __Image > image_;
         void init_();
 };
 }//namespace image
