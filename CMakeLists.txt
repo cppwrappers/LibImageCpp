@@ -19,7 +19,7 @@ SET(TESTFILES "/home/e3a/testfiles" CACHE TESTFILES "The path to the testfiles."
 # -----------------------   Config Toolchain        -----------------------
 # -------------------------------------------------------------------------
 if(CMAKE_COMPILER_IS_GNUCXX)
-    add_definitions(-std=c++14)
+    add_definitions(-std=c++11)
 endif()
 set(CMAKE_C_FLAGS_DEBUG ${CMAKE_C_FLAGS_DEBUG} -O0 -g)
 add_definitions(-DDEBUG )
