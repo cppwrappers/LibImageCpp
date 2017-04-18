@@ -14,17 +14,19 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 # -------------------------------------------------------------------------
 # -----------------------   Config Toolchain        -----------------------
 # -------------------------------------------------------------------------
-if(CMAKE_COMPILER_IS_GNUCXX)
-    add_definitions(-std=c++11)
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+    set(CMAKE_CXX_FLAGS "-std=c++11 -stdlib=libstdc++")
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+    set(CMAKE_CXX_FLAGS "-std=c++11")
     add_definitions(-Wall -Wextra)
     IF(CMAKE_BUILD_TYPE MATCHES RELEASE)
         add_definitions(-DNDEBUG)
         add_definitions(-DELPP_DISABLE_TRACE_LOGS)
     ENDIF(CMAKE_BUILD_TYPE MATCHES RELEASE)
-    set(CMAKE_C_FLAGS_DEBUG ${CMAKE_C_FLAGS_DEBUG} -O0 -g)
 endif()
+
 add_definitions(-DLIB_IMAGE_CPP_RELEASE="${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION}")
-add_definitions(-DCMAKE_SOURCE_DIR="${CMAKE_SOURCE_DIR}/")
+#XXX add_definitions(-DCMAKE_SOURCE_DIR="${CMAKE_SOURCE_DIR}/")
 
 #add headers for editor
 FILE(GLOB_RECURSE HeaderFiles "${PROJECT_SOURCE_DIR}/libimagecpp/*.h")
