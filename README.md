@@ -1,4 +1,5 @@
-![imlib2-logo](https://docs.enlightenment.org/api/imlib2/html/imlib2.png)
+[![Build Status](https://travis-ci.org/cppwrappers/LibImageCpp.svg?branch=master)](https://travis-ci.org/cppwrappers/LibImageCpp)
+
 # C++ Wrapper for various image libraries
 
 ## Inlcude in your project:
