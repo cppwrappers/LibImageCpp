@@ -18,7 +18,7 @@ SET( INCLUDES ${INCLUDES} ${IMLIB2_INCLUDE_DIR} )
 include_directories(${ROOT} ${INCLUDES})
 aux_source_directory( ${PROJECT_SOURCE_DIR} LIBIMAGECPP_SOURCES )
 
-add_library( imagecpp SHARED ${LIBIMAGECPP_SOURCES} )
+add_library( imagecpp ${LIBIMAGECPP_SOURCES} )
 target_link_libraries( imagecpp ${LIBS})
 
 #add headers for editor
